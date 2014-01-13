@@ -48,6 +48,7 @@ gem 'devise'
 gem 'bootstrap-sass', '2.3.2.0'
 
 group :development, :test do
+  gem 'factory_girl'
   gem 'sqlite3'
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'rspec-collection_matchers'
