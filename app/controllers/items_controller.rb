@@ -1,15 +1,10 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:edit, :update, :destroy]
 
   # GET /items
   # GET /items.json
   def index
     @items = Item.all
-  end
-
-  # GET /items/1
-  # GET /items/1.json
-  def show
   end
 
   # GET /items/new
@@ -21,6 +16,10 @@ class ItemsController < ApplicationController
   def edit
   end
 
+  def show
+    redirect_to items_path
+  end
+
   # POST /items
   # POST /items.json
   def create
@@ -29,7 +28,6 @@ class ItemsController < ApplicationController
     respond_to do |format|
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @item }
       else
         format.html { render action: 'new' }
         format.json { render json: @item.errors, status: :unprocessable_entity }
